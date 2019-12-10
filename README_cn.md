@@ -32,7 +32,7 @@ A bert powered bot help you identify users.
 * pip install -r requirements.txt or  pip install -r requirements-gpu.txt
 * cp config.json.sample config.json
 * python server.py
-* 打开浏览器，访问 http://127.0.0.1:5200 使用简单的web界面
+* 打开浏览器，访问 http://127.0.0.1:5002 使用简单的web界面
 * 使用API: http://localhost:5002/api/iden?screen_name=a_screen_name 
 
 ## Result samples

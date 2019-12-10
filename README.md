@@ -58,7 +58,7 @@ Sunxiaochuan negatives : result_samples/negative
 * pip install -r requirements.txt or  pip install -r requirements-gpu.txt
 * cp config.json.sample config.json
 * python server.py
-* Open a web browser, open http://127.0.0.1:5200 for webui.
+* Open a web browser, open http://127.0.0.1:5002 for webui.
 * API: http://localhost:5002/api/iden?screen_name=a_screen_name 
 
 
