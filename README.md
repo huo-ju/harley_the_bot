@@ -59,3 +59,11 @@ Sunxiaochuan negatives : result_samples/negative
 * Open a web browser, open http://127.0.0.1:5200 for webui.
 * API: http://localhost:5002/api/iden?screen_name=a_screen_name 
 
+
+## Dependencies 
+
+ | Dependency  | License |
+ | :------------- | :------------- |
+ | [github.com/tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) |  Apache-2.0 |
+ | [github.com/google-research/bert](https://github.com/google-research/bert) | Apache-2.0 |
+ | [github.com/ymcui/Chinese-BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm) | Apache-2.0 |

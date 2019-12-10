@@ -66,3 +66,11 @@ A bert powered bot help you identify users.
 * 还能提高吗？ 能。我目前使用的数据集比较粗糙，如果有更好的预处理会有更好的准确度。以及一些推文（比如互相打招呼问好）在两类用户中都有出现，这些数据我没有精力一一筛选去掉。
 * 只支持简体中文吗？支持繁体和简体中文，也可以处理包含emoji的内容。但是目前英文内容处理不正确。
 
+
+## Dependencies 
+
+ | Dependency  | License |
+ | :------------- | :------------- |
+ | [github.com/tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) |  Apache-2.0 |
+ | [github.com/google-research/bert](https://github.com/google-research/bert) | Apache-2.0 |
+ | [github.com/ymcui/Chinese-BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm) | Apache-2.0 |
