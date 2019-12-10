@@ -17,6 +17,8 @@ Nov 2019, a new wave of troll army named of "Sunxiaochuan 258" had reached twitt
 
 The crawler scripts is tools/fetch.py and tools/tweets.py
 
+Download Training Set: https://drive.google.com/file/d/1pM9Gp5QXIoLDKb9L4ertM0D8RZRjfVC7/view
+
 ## Fine-Tuning the language model
 
 * BERT-Base, Chinese 

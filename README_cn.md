@@ -15,6 +15,8 @@ A bert powered bot help you identify users.
 
 抓取脚本在 tools/fetch.py and tools/tweets.py
 
+下载 Training Set: https://drive.google.com/file/d/1pM9Gp5QXIoLDKb9L4ertM0D8RZRjfVC7/view
+
 ## Fine-Tuning the language model
 
 * BERT-Base, Chinese 
