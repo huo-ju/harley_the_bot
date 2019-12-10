@@ -6,6 +6,6 @@
 "fetch_tweet_limit":100,
 "min_text_require":30,
 "min_text_len_require":15,
-"port":5002
+"port":5002,
 "host":"127.0.0.1"
 }
