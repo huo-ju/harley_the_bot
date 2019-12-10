@@ -1,5 +1,7 @@
 A bert powered bot help you identify users.
 
+[中文版](https://github.com/virushuo/harley_the_bot/blob/master/README_cn.md)
+
 ## Overview
 
 The goal of this project is to identify users who publish messages with the "SunXiaoChuan" pattern.
