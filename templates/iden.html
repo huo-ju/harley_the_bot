@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>{{ title }} - harley the bot </title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="blue-grey lighten-2" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Harley the bot </a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center cyan-text">@{{ screen_name }} </h3>
+      <h3 class="header center cyan-text">"孙笑川率"</h3>
+      <h1 class="header center cyan-text"> {{ ratio }} % </h1 >
+      <div class="row center">
+        <h5 class="header col s12 light">A bert powered bot help you identify users.</h5>
+      </div>
+      <div class="row center">
+        <div class="col s12">
+          <div class="icon-block">
+              <p class="light">“孙笑川率”是这个用户最近的推文中被检测为接近孙笑川模式的比例。因为目前采用的语料并没有严格过滤，普通人的正常推也有一定机会被检测为孙笑川推。目前这个数字超过70%才可以判断用户比较接近孙笑川。下面的表格中，笑脸代表普通内容，叉代表孙笑川疑似内容。后面的两个数字，NO表示”不是孙笑川的可能性“，Yes表示”是孙笑川的可能性“，最大值均为1。更详细的<a href="#">说明请看github repo: </a></p>
+          </div>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="section">
+      <table class='striped'>
+        <thead>
+          <tr>
+              <th>R</th>
+              <th>No</th>
+              <th>Yes</th>
+              <th>Tweet</th>
+              <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tweet in tweets %}
+          <tr>
+            <td> 
+                {% if tweet.classification == 1 %}
+                   <i class="material-icons">clear</i>
+                {% else %}
+                   <i class="material-icons">sentiment_very_satisfied</i>
+                {% endif %}
+		    </td>
+            <td>{{ tweet.probabilities[0] | round( 4, 'floor') }}</td>
+            <td>{{ tweet.probabilities[1] | round( 4, 'floor') }}</td>
+            <td>{{ tweet.data.text }}</td>
+			<td><a href="https://twitter.com/{{ screen_name }}/status/{{ tweet.data.id }}" target="_blank"> <i class="material-icons">link</i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="page-footer blue-grey lighten-3">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="cyan-text text-lighten-3" href="https://twitter.com/virushuo">@virushuo</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

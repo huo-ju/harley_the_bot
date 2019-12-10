@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>{{ title }} - harley the bot </title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="blue-grey lighten-2" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Harley the bot </a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center cyan-text">Analyze the "Sun XiaoChuan" rate </h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A bert powered bot help you identify users.</h5>
+      </div>
+      <br><br>
+    </div>
+  </div>
+
+  <div class="container">
+	  <form id="idenform" action="/idenusers" method="get">
+		<div class="row">
+    		<div class="col s12 m6 offset-m3">
+          		<div class="input-field inline col s9 m9">
+                	<input placeholder="nytchinese" id="screen_name" name="screen_name" type="text" class="validate">
+                	<label for="screen_name" class="active">twitter username</label>
+              	</div>
+            	<div class="input-field col s3 m3">
+  					<button class="btn waves-effect waves-light cyan" id="submit_screen_name" >Submit
+  					  <i class="material-icons right">search</i>
+  					</button>
+				</div>
+                <div id="submit_progressbar" class="progress" style="display:none">
+                    <div class="indeterminate"></div>
+                </div>
+        	</div>
+		</div>
+      </form>
+  </div>
+  <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6 offset-m3">
+          <div class="icon-block">
+            <h2 class="center cyan-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">简单说明</h5>
+            <p class="light">基于Google Bert的NLP AI用户内容分析工具。详情请看 http://github.com/virushuo 。注意，服务器非常慢，最长可能需要几分钟才能拿到结果。过几天我解决这个问题，你也可以到github拿到源码和模型自己搭建。 分析结果在测试环境准确性大约80%，所以可能超过75%的孙笑川率才值得注意。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer blue-grey lighten-3">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="cyan-text text-lighten-3" href="https://twitter.com/virushuo">@virushuo</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/index.js"></script>
+
+  </body>
+</html>
