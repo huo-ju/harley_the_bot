@@ -6,8 +6,8 @@
 "fetch_tweet_limit":100,
 "min_text_require":30,
 "min_text_len_require":15,
-"enable_remote_workers":true,
+"enable_remote_workers":false,
 "remote_timeout":300,
-"port":5002,
+"port":6002,
 "host":"127.0.0.1"
 }

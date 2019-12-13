@@ -1,0 +1,5 @@
+{
+"api_url" : "http://localhost:5002/api/iden",
+"backend":"rpc://",
+"broker":"pyamqp://myapp:@200.111.0.107/myapp_local"
+}
