@@ -1,5 +1,5 @@
 {
 "api_url" : "http://localhost:5002/api/iden",
-"backend":"rpc://",
-"broker":"pyamqp://myapp:@200.111.0.107/myapp_local"
+"backend":"redis://localhost:6379/1",
+"broker":"redis://localhost:6379/0"
 }

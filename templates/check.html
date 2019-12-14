@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>{{ title }} - harley the bot </title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="blue-grey lighten-2" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Harley the bot </a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center cyan-text">Working...</h1>
+      <br><br>
+    </div>
+  </div>
+
+  <div class="container">
+
+      <div class="row center">
+        <div class="col s12">
+          <div class="icon-block">
+              <p class="light">Task status: <span id="task_status">PENDING</id>...</p>
+          </div>
+      </div>
+      <br><br>
+    </div>
+
+	<div class="row">
+    	<div class="col s12 m6 offset-m3">
+            <div id="submit_progressbar" class="progress" style="display:block">
+                <div class="indeterminate"></div>
+            </div>
+    	</div>
+	</div>
+  </div>
+  <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6 offset-m3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer blue-grey lighten-3">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="cyan-text text-lighten-3" href="https://twitter.com/virushuo">@virushuo</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript">
+   var task_id = "{{ task_id }}";
+  </script>
+  <script src="js/check.js"></script>
+
+  </body>
+</html>

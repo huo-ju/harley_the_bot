@@ -1,8 +1,10 @@
 import tensorflow as tf
 import tokenization
 import json
+import os
 import collections
 
+#os.environ["CUDA_VISIBLE_DEVICES"]="2"
 
 class DataProcessor(object):
   """Base class for data converters for sequence classification data sets."""
@@ -233,7 +235,7 @@ class Predict(object):
           tf_example = tf.train.Example(features=tf.train.Features(feature=features))
           examples.append(tf_example.SerializeToString())
       return examples
-  def _post_processing(self, probabilities, input_data):
+  def _post_processing(self, probabilities, input_data, screen_name):
     results = []
     c_1 = 0
     count = probabilities.shape[0]
@@ -249,14 +251,14 @@ class Predict(object):
         item["offset"]= "%.6f" % abs(probabilities.item(i, 0) - probabilities.item(i, 1))
         results.append(item)
     ratio = c_1/count
-    summary = {"ratio" : "%.6f" % ratio }
+    summary = {"screen_name": screen_name, "ratio" : "%.6f" % ratio }
     return {"summary":summary, "results":results}
    
-  def get_predictions(self, input_data):
+  def get_predictions(self, input_data, screen_name):
     examples_for_predict = self._get_examples_for_predict(input_data)
     predictions = self.predict_fn({'example': examples_for_predict})
     probabilities = predictions["probabilities"]
-    results = self._post_processing(probabilities, input_data)
+    results = self._post_processing(probabilities, input_data, screen_name)
     return results
 
 

@@ -6,7 +6,6 @@ document.getElementById('submit_screen_name').addEventListener("click", function
 },false);
 
 function idensubmit() {
-    console.log("idensubmit");
     document.getElementById('submit_progressbar').style.display = "block";
     document.getElementById('idenform').submit();
     document.getElementById('submit_screen_name').disabled=true;

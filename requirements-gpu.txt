@@ -46,3 +46,4 @@ twitterscraper==1.4.0
 urllib3==1.25.7
 Werkzeug==0.16.0
 wrapt==1.11.2
+redis==3.3.11

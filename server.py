@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 from flask_jsonpify import jsonify
 from tasks import predict as dpredict
 from tasks import predict_byname
+from tasks import app as taskbackend
 import sys
 import json
 import tweets
@@ -39,21 +40,21 @@ if enable_remote_workers == False:
     predict = modelserver.Predict(config)
 
 
-def run_predict(input_data):
+def run_predict(input_data, screen_name):
     global enable_remote_workers 
     if enable_remote_workers == True:
         p = dpredict.delay(input_data)
         result = p.get(timeout=config["remote_timeout"])
         return result
     else:
-        result = predict.get_predictions(input_data)
+        result = predict.get_predictions(input_data, screen_name)
         return result
 
 def run_predict_byname(screen_name):
     global enable_remote_workers 
     if enable_remote_workers == True:
         p = predict_byname.delay(screen_name)
-        result = p.get(timeout=config["remote_timeout"])
+        result = {"task_id":p.id}
         return result
     else:
         input_data = tweets.tweets_to_inputdata(screen_name, config)
@@ -72,13 +73,24 @@ class APIIden(Resource):
     def post(self):
         global enable_remote_workers 
         if enable_remote_workers == False:
+            screen_name = request.args["screen_name"]
             input_data = request.get_json(force=True)
-            result = run_predict(input_data)
+            result = run_predict(input_data, screen_name)
             return jsonify(result)
         else:
             return jsonify({"error":"server only run under the local mode. set enable_remote_workers = false "})
 
+class APICheck(Resource):
+    def get(self):
+        task_id = request.args["task_id"]
+        p = taskbackend.AsyncResult(task_id)
+        result = {"state":p.state}
+        return jsonify(result)
+
+
 api.add_resource(APIIden, '/api/iden') 
+api.add_resource(APICheck, '/api/check') 
+
 
 @app.route('/')
 def home():
@@ -92,10 +104,25 @@ def iden():
     screen_name =screen_name.replace("@","")
 
     result_data = run_predict_byname(screen_name)
-    if ("err"  in result_data) == True:
+    if ("err" in result_data) == True:
         return render_template('/err.html', title="Identify User:", err= result_data["err"])
+    elif ("task_id" in result_data) == True:
+        return render_template('/check.html', title="Working for User:", task_id = result_data["task_id"])
     else:
         return render_template('/iden.html', title="Identify User:", tweets = result_data["results"], screen_name = screen_name, ratio = "%.2f" % (float( result_data["summary"]["ratio"])*100))
+
+@app.route('/idenresult')
+def idenbytaskid():
+    global enable_remote_workers 
+    task_id= request.args.get('task_id')
+    p = taskbackend.AsyncResult(task_id)
+    result_data = p.get(timeout=5)
+    if ("err" in result_data) == True:
+        return render_template('/err.html', title="Identify User:", err= result_data["err"])
+    else:
+        return render_template('/iden.html', title="Identify User:", tweets = result_data["results"], screen_name = result_data["summary"]["screen_name"], ratio = "%.2f" % (float( result_data["summary"]["ratio"])*100))
+
+
 
 @app.route('/js/<path:path>')
 def send_js(path):
