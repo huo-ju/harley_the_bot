@@ -34,7 +34,7 @@ Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 kombu==4.6.7
 librabbitmq==2.0.0
-lxml==4.4.2
+lxml==4.6.2
 Markdown==3.1.1
 MarkupSafe==1.1.1
 more-itertools==8.0.2
